@@ -1,14 +1,15 @@
 defmodule ReportAppWeb.Router do
   use ReportAppWeb, :router
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
+  # pipeline :api do
+  #   plug :accepts, ["json"]
+  # end
 
   scope "/api", ReportAppWeb do
     pipe_through :api
   end
 
+  # coveralls-ignore-start
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
@@ -25,6 +26,8 @@ defmodule ReportAppWeb.Router do
       live_dashboard "/dashboard", metrics: ReportAppWeb.Telemetry
     end
   end
+
+  # coveralls-ignore-stop
 
   # Enables the Swoosh mailbox preview in development.
   #
